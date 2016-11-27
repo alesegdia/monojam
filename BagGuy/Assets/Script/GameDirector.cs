@@ -51,6 +51,7 @@ public class GameDirector : MonoBehaviour {
 	public GameObject ladder;
 	public GameObject spike;
 	public GameObject trapShooter;
+	public GameObject grail;
 	public Text timeText;
 	float timeLeft = 160;
 
@@ -69,6 +70,7 @@ public class GameDirector : MonoBehaviour {
 				case 2: prefab = ladder; break;
 				case 3: prefab = spike; break;
 				case 4: prefab = trapShooter; break;
+				case 5: prefab = grail; break;
 				}
 
 				if (prefab != null) {
