@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 
 public class GameDirector : MonoBehaviour {
@@ -49,6 +50,11 @@ public class GameDirector : MonoBehaviour {
 	public GameObject block;
 	public GameObject ladder;
 	public GameObject spike;
+	public GameObject trapShooter;
+	public Text timeText;
+	float timeLeft = 160;
+
+	BagGuy bagGuy;
 
 	// Use this for initialization
 	void Start () {
@@ -57,19 +63,37 @@ public class GameDirector : MonoBehaviour {
 		for (int i = 0; i < height; i++) {
 			for (int j = 0; j < width; j++) {
 				short cell = map [i,j];
-				if (cell == 1) {
-					GameObject.Instantiate (block, new Vector3 (j * 5, (height - i) * 5, 0), Quaternion.identity);
-				} else if (cell == 2) {
-					GameObject.Instantiate (ladder, new Vector3 (j * 5, (height - i) * 5, 0), Quaternion.identity);
-				} else if (cell == 3) {
-					GameObject.Instantiate (spike, new Vector3 (j * 5, (height - i) * 5, 0), Quaternion.identity);
+				GameObject prefab = null;
+				switch (cell) {
+				case 1: prefab = block; break;
+				case 2: prefab = ladder; break;
+				case 3: prefab = spike; break;
+				case 4: prefab = trapShooter; break;
+				}
+
+				if (prefab != null) {
+					GameObject.Instantiate (prefab, new Vector3 (j * 5, (height - i) * 5, 0), Quaternion.identity);
 				}
 			}
 		}
+		bagGuy = GameObject.FindGameObjectWithTag ("bag_guy").GetComponent<BagGuy> ();
+		//Screen.SetResolution (200, 200, false);
 	}
 	
 	// Update is called once per frame
 	void Update () {
-	
+		if (timeLeft <= 0) {
+			bagGuy.dead = true;
+		}
+		timeLeft -= Time.deltaTime;
+		if (bagGuy.dead) {
+			bagGuy.dead = false;
+			Application.LoadLevel(0);
+		}
+
+		int timeleft = (int)Mathf.Round (timeLeft);
+		int minutes = timeleft / 60;
+		int seconds = timeleft % 60;
+		timeText.text = "" + minutes + ":" + seconds;
 	}
 }
