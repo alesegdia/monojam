@@ -10,7 +10,7 @@ GameObject:
   - 4: {fileID: 489960}
   - 212: {fileID: 21276256}
   - 61: {fileID: 6173674}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: ladder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -24,7 +24,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 160992}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -20.236874, y: -182.39902, z: 0}
+  m_LocalPosition: {x: -130.2677, y: -325.15408, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
@@ -41,7 +41,7 @@ BoxCollider2D:
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_UsedByEffector: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 2.5, y: -2.5}
   serializedVersion: 2
   m_Size: {x: 5, y: 5}
 --- !u!212 &21276256
