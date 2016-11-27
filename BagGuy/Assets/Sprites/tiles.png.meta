@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 33e8d285dd87643c38b5c009af8934b9
-timeCreated: 1480265640
+timeCreated: 1480273201
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -176,8 +176,8 @@ TextureImporter:
       name: tiles_8
       rect:
         serializedVersion: 2
-        x: 0
-        y: 10
+        x: 20
+        y: 15
         width: 5
         height: 5
       alignment: 1
@@ -188,7 +188,7 @@ TextureImporter:
       name: tiles_9
       rect:
         serializedVersion: 2
-        x: 5
+        x: 0
         y: 10
         width: 5
         height: 5
@@ -200,7 +200,7 @@ TextureImporter:
       name: tiles_10
       rect:
         serializedVersion: 2
-        x: 10
+        x: 5
         y: 10
         width: 5
         height: 5
@@ -212,7 +212,7 @@ TextureImporter:
       name: tiles_11
       rect:
         serializedVersion: 2
-        x: 15
+        x: 10
         y: 10
         width: 5
         height: 5
@@ -224,8 +224,8 @@ TextureImporter:
       name: tiles_12
       rect:
         serializedVersion: 2
-        x: 0
-        y: 5
+        x: 15
+        y: 10
         width: 5
         height: 5
       alignment: 1
@@ -236,7 +236,7 @@ TextureImporter:
       name: tiles_13
       rect:
         serializedVersion: 2
-        x: 5
+        x: 0
         y: 5
         width: 5
         height: 5
@@ -248,7 +248,7 @@ TextureImporter:
       name: tiles_14
       rect:
         serializedVersion: 2
-        x: 10
+        x: 5
         y: 5
         width: 5
         height: 5
@@ -260,7 +260,7 @@ TextureImporter:
       name: tiles_15
       rect:
         serializedVersion: 2
-        x: 15
+        x: 10
         y: 5
         width: 5
         height: 5
@@ -272,7 +272,7 @@ TextureImporter:
       name: tiles_16
       rect:
         serializedVersion: 2
-        x: 20
+        x: 15
         y: 5
         width: 5
         height: 5
@@ -284,8 +284,8 @@ TextureImporter:
       name: tiles_17
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
+        x: 20
+        y: 5
         width: 5
         height: 5
       alignment: 1
@@ -296,7 +296,7 @@ TextureImporter:
       name: tiles_18
       rect:
         serializedVersion: 2
-        x: 5
+        x: 0
         y: 0
         width: 5
         height: 5
@@ -308,7 +308,7 @@ TextureImporter:
       name: tiles_19
       rect:
         serializedVersion: 2
-        x: 10
+        x: 5
         y: 0
         width: 5
         height: 5
@@ -320,7 +320,7 @@ TextureImporter:
       name: tiles_20
       rect:
         serializedVersion: 2
-        x: 15
+        x: 10
         y: 0
         width: 5
         height: 5
@@ -330,6 +330,18 @@ TextureImporter:
       outline: []
     - serializedVersion: 2
       name: tiles_21
+      rect:
+        serializedVersion: 2
+        x: 15
+        y: 0
+        width: 5
+        height: 5
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - serializedVersion: 2
+      name: tiles_22
       rect:
         serializedVersion: 2
         x: 20
