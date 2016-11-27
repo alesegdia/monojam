@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 993668a17a0374d3e952ca425eabfc0e
-timeCreated: 1480216534
+timeCreated: 1480225227
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -17,6 +17,7 @@ TextureImporter:
     21300020: bagguy_sheet_10
     21300022: bagguy_sheet_11
     21300024: bagguy_sheet_12
+    21300026: bagguy_sheet_13
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -213,6 +214,18 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
+        y: 0
+        width: 17
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - serializedVersion: 2
+      name: bagguy_sheet_13
+      rect:
+        serializedVersion: 2
+        x: 17
         y: 0
         width: 17
         height: 17

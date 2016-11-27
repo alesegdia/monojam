@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 33e8d285dd87643c38b5c009af8934b9
-timeCreated: 1480221790
+timeCreated: 1480222518
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -294,6 +294,18 @@ TextureImporter:
       outline: []
     - serializedVersion: 2
       name: tiles_18
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 0
+        width: 5
+        height: 5
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - serializedVersion: 2
+      name: tiles_19
       rect:
         serializedVersion: 2
         x: 20
