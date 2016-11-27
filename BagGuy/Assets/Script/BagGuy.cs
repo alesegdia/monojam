@@ -10,6 +10,9 @@ public class BagGuy : MonoBehaviour {
 	public float jumpMultiplier = 1.5f;
 	public bool onFloor = false;
 
+	Transform groundChecker;
+	Animator animator;
+
 	public LayerMask layerMask;
 
 	Rigidbody2D rb;
@@ -19,24 +22,19 @@ public class BagGuy : MonoBehaviour {
 	void Start () {
 		rb = GetComponent<Rigidbody2D> ();
 		sr = GetComponent<SpriteRenderer> ();
+		animator = GetComponent<Animator> ();
 		onFloor = false;
-	}
-
-	void OnCollisionStay2D( Collision2D collision)
-	{
-		foreach (ContactPoint2D contact in collision.contacts) {
-			if (contact.normal.y > 0.98f) {
-				onFloor = true;
-			}
-		}
+		groundChecker = transform.Find ("GroundChecker");
 	}
 
 	// Update is called once per frame
-	void FixedUpdate () {
+	void Update () {
 		Vector2 v = rb.velocity;
 
-		RaycastHit2D hit = Physics2D.Raycast (this.transform.position, new Vector2 (0, -1), 4, layerMask);
-		Debug.Log (hit.collider);
+		Debug.Log (groundChecker);
+		Collider2D hit = Physics2D.OverlapCircle( new Vector2(groundChecker.position.x, groundChecker.position.y), 0.15f, layerMask);
+		onFloor = hit != null;
+		animator.SetBool ("OnFloor", onFloor);
 
 		bool running = Input.GetKey (KeyCode.LeftShift);
 
@@ -50,7 +48,7 @@ public class BagGuy : MonoBehaviour {
 			v.x = 0;
 		}
 
-		Debug.Log (onFloor);
+		animator.SetFloat ("HorizontalSpeed", Mathf.Abs(v.x));
 
 		if (Input.GetKeyDown (KeyCode.W) && onFloor) {
 			v.y = jumpStrength * ((running && Mathf.Abs(v.x) > 0) ? jumpMultiplier : 1);
