@@ -8,16 +8,22 @@ public class BagGuy : MonoBehaviour {
 	public float maxVerticalSpeed = 200f;
 	public float runMultiplier = 1.5f;
 	public float jumpMultiplier = 1.5f;
-	bool onFloor = false;
-	bool crouched = false;
+	public bool onFloor = false;
+	public bool crouched = false;
 	public bool touchingLadder = false;
 	public bool climbingLadder = false;
-	float gravityScale = 0;
+	public float gravityScale = 0;
 	public bool dead = false;
+
+
 
 	Transform groundChecker;
 	GameObject topCollision;
 	Animator animator;
+	public AudioClip sfxLose;
+	public AudioClip sfxWin;
+	public AudioClip sfxJump;
+	AudioSource audio;
 
 	public LayerMask layerMask;
 
@@ -29,6 +35,8 @@ public class BagGuy : MonoBehaviour {
 		rb = GetComponent<Rigidbody2D> ();
 		sr = GetComponent<SpriteRenderer> ();
 		animator = GetComponent<Animator> ();
+		audio = GetComponent<AudioSource> ();
+
 		onFloor = false;
 		touchingLadder = false;
 		climbingLadder = false;
@@ -43,12 +51,19 @@ public class BagGuy : MonoBehaviour {
 		if (collision.gameObject.layer == LayerMask.NameToLayer ("ladder")) {
 			touchingLadder = true;
 		}
+
+		if (collision.gameObject.layer == LayerMask.NameToLayer ("grail")) {
+			dead = true;
+			MusicSingleton.Instance.PlaySfx (1);
+		}
 	}
 
 	void OnCollisionEnter2D( Collision2D collision )
 	{
 		if (collision.gameObject.layer == LayerMask.NameToLayer ("spike")) {
 			dead = true;
+			Debug.Log ("dayin");
+			MusicSingleton.Instance.PlaySfx (2);
 		}
 	}
 
@@ -69,10 +84,10 @@ public class BagGuy : MonoBehaviour {
 	}
 
 	// Update is called once per frame
-	void FixedUpdate () {
+	void Update () {
 		Vector2 v = rb.velocity;
 
-		Collider2D hit = Physics2D.OverlapCircle( new Vector2(groundChecker.position.x, groundChecker.position.y), 0.15f, layerMask);
+		Collider2D hit = Physics2D.OverlapCircle( new Vector2(groundChecker.position.x, groundChecker.position.y), 0.5f, layerMask);
 		onFloor = hit != null;
 
 		bool running = Input.GetKey (KeyCode.LeftShift);
@@ -99,6 +114,7 @@ public class BagGuy : MonoBehaviour {
 
 
 		if (Input.GetKeyDown (KeyCode.W) && onFloor) {
+			audio.PlayOneShot (sfxJump);
 			v.y = jumpStrength * ((running && Mathf.Abs(v.x) > 0) ? jumpMultiplier : 1);
 		}
 
